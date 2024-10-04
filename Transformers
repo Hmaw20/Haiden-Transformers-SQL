@@ -1,0 +1,1002 @@
+--
+-- PostgreSQL database cluster dump
+--
+
+-- Started on 2024-10-03 21:00:46
+
+SET default_transaction_read_only = off;
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:zpG1zN3GFsEaVtnylfZMRA==$ZHD6dljXq6+dWntY98Op2no+1CK2KA0o0QQp0fbQKw4=:4+1/fCky4XzdqUr1g7vEn+mOYQBg3U7vZnUSOqPBfnc=';
+
+--
+-- User Configurations
+--
+
+
+
+
+
+
+
+
+--
+-- Databases
+--
+
+--
+-- Database "template1" dump
+--
+
+\connect template1
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.3
+-- Dumped by pg_dump version 16.3
+
+-- Started on 2024-10-03 21:00:46
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+-- Completed on 2024-10-03 21:00:46
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- Database "postgres" dump
+--
+
+\connect postgres
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.3
+-- Dumped by pg_dump version 16.3
+
+-- Started on 2024-10-03 21:00:46
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 2 (class 3079 OID 16384)
+-- Name: adminpack; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 4778 (class 0 OID 0)
+-- Dependencies: 2
+-- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
+
+
+-- Completed on 2024-10-03 21:00:46
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- Database "transformers" dump
+--
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.3
+-- Dumped by pg_dump version 16.3
+
+-- Started on 2024-10-03 21:00:46
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4858 (class 1262 OID 16398)
+-- Name: transformers; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE transformers WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'English_United States.1252';
+
+
+ALTER DATABASE transformers OWNER TO postgres;
+
+\connect transformers
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 219 (class 1259 OID 16417)
+-- Name: combiner_wars; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.combiner_wars (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.combiner_wars OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 16436)
+-- Name: earthrise; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.earthrise (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.earthrise OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 24635)
+-- Name: evolution; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.evolution (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.evolution OWNER TO postgres;
+
+--
+-- TOC entry 224 (class 1259 OID 16450)
+-- Name: kingdom; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.kingdom (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.kingdom OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 16443)
+-- Name: legacy; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.legacy (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.legacy OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 16424)
+-- Name: power_of_the_prime; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.power_of_the_prime (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    size character varying NOT NULL,
+    own boolean NOT NULL,
+    rating character varying
+);
+
+
+ALTER TABLE public.power_of_the_prime OWNER TO postgres;
+
+--
+-- TOC entry 221 (class 1259 OID 16431)
+-- Name: siege; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.siege (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.siege OWNER TO postgres;
+
+--
+-- TOC entry 227 (class 1259 OID 24649)
+-- Name: studio_series; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.studio_series (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.studio_series OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 16400)
+-- Name: thriling_30; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.thriling_30 (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    size character varying NOT NULL,
+    own boolean NOT NULL,
+    rating character varying
+);
+
+
+ALTER TABLE public.thriling_30 OWNER TO postgres;
+
+--
+-- TOC entry 218 (class 1259 OID 16409)
+-- Name: titans_return; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.titans_return (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    size character varying NOT NULL,
+    own boolean NOT NULL,
+    rating character varying
+);
+
+
+ALTER TABLE public.titans_return OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 16408)
+-- Name: titans_return_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.titans_return_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.titans_return_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4869 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: titans_return_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.titans_return_id_seq OWNED BY public.titans_return.id;
+
+
+--
+-- TOC entry 215 (class 1259 OID 16399)
+-- Name: transformers_thriling_30_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.transformers_thriling_30_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.transformers_thriling_30_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4870 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: transformers_thriling_30_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.transformers_thriling_30_id_seq OWNED BY public.thriling_30.id;
+
+
+--
+-- TOC entry 226 (class 1259 OID 24642)
+-- Name: united; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.united (
+    id integer NOT NULL,
+    name character varying,
+    size character varying,
+    own boolean,
+    rating character varying
+);
+
+
+ALTER TABLE public.united OWNER TO postgres;
+
+--
+-- TOC entry 4675 (class 2604 OID 16403)
+-- Name: thriling_30 id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.thriling_30 ALTER COLUMN id SET DEFAULT nextval('public.transformers_thriling_30_id_seq'::regclass);
+
+
+--
+-- TOC entry 4676 (class 2604 OID 16412)
+-- Name: titans_return id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.titans_return ALTER COLUMN id SET DEFAULT nextval('public.titans_return_id_seq'::regclass);
+
+
+--
+-- TOC entry 4844 (class 0 OID 16417)
+-- Dependencies: 219
+-- Data for Name: combiner_wars; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.combiner_wars (id, name, size, own, rating) FROM stdin;
+1	Shockwave	Legends	t	A
+2	Bombshell	Legends	t	A
+3	Windcharger	Legends	t	B
+4	Warpath	Legends	t	C
+5	Groove	Legends	f	D
+6	Rust Dust	Legends	f	C
+7	Alpha Bravo	Deluxe	t	C
+8	Fierfly	Deluxe	t	C
+9	Skydive	Deluxe	t	C
+10	Air Raid	Deluxe	t	C
+11	Blades	Deluxe	f	C
+12	First Aid	Deluxe	f	B
+13	Rook	Deluxe	f	A
+14	Streetwise	Deluxe	f	B
+15	Blast off	SE Deluxe	t	C
+16	Brawl	Deluxe	t	D
+17	Swindle	Deluxe	t	C
+18	Vortex	Deluxe	t	D
+19	Silverbolt	Voyager	t	A
+20	Hot Spot	Voyager	f	A
+21	Onslaught	Voyager	t	A
+22	Devastator	Titan	t	A
+23	Jumpstream	Deluxe	f	C
+24	Dust Up	Deluxe	f	C
+25	Skyburst	Deluxe	f	C
+26	Stormclash	Deluxe	f	C
+27	Pyra Magna	Voyager	f	A
+\.
+
+
+--
+-- TOC entry 4847 (class 0 OID 16436)
+-- Dependencies: 222
+-- Data for Name: earthrise; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.earthrise (id, name, size, own, rating) FROM stdin;
+1	Smashdown	Battle Masters	t	A
+3	Wheeljack	Deluxe	t	B
+4	Ironworks	Deluxe	f	A
+5	Arcee	Deluxe	t	D
+6	Hothouse	Deluxe	f	A
+7	Airwave	Deluxe	f	A
+8	Allicon	Deluxe	t	C
+9	Trailbreaker	Deluxe	t	C
+10	Fasttrack	Deluxe	f	B
+11	Sunstreaker	Deluxe	t	B
+12	Runamuck	Deluxe	f	B
+13	Starscream	Voyager	t	A
+14	Grapple	Voyager	t	A
+15	Snapdragon	Voyager	t	A
+16	Quintesson Judge	Voyager	t	D
+17	Optimus Prime	Leader	t	A
+18	Doubledealer	Leader	t	C
+19	Sky Lynx	Commander	t	A
+20	Scorponok	Titan	f	A
+21	Runabout	Deluxe	f	A
+22	Fastlane	Deluxe	f	C
+23	Cloudraker	Deluxe	f	C
+24	Pounce	Deluxe	f	A
+25	Wingspan	Deluxe	f	A
+26	Barricade	Deluxe	f	B
+27	Punch-Counterpunch	Deluxe	f	C
+28	Overair	Deluxe	f	A
+29	Ironworks2	Deluxe	f	A
+30	Thundercracker	Voyager	t	A
+31	Skywarp	Voyager	t	A
+32	Fuzer & Autobot Blast Master	Micromasters	f	A
+33	Missile Master & Moonrock	Micromasters	f	B
+34	Wingthing	Micromasters	t	B
+35	Frenzy	Micromasters	t	C
+36	Skar	Micromasters	t	B
+37	Knok	Micromasters	t	C
+38	Greasepit	Deluxe	f	A
+39	Hubcap	Deluxe	f	C
+2	Hoist	Deluxe	t	D
+40	Netflix Bumblebee	Deluxe	t	A
+\.
+
+
+--
+-- TOC entry 4850 (class 0 OID 24635)
+-- Dependencies: 225
+-- Data for Name: evolution; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.evolution (id, name, size, own, rating) FROM stdin;
+1	Sludge	Core	t	B
+2	Slug	Core	f	A
+3	Grimlock	Core	t	A
+4	Scarr	Core	t	A
+5	Breakdown	Deluxe	t	B
+6	Armada Hot Shot	Deluxe	t	A
+7	Scraphook	Deluxe	t	C
+8	Crashbar	Deluxe	t	B
+9	Animated Prowl	Deluxe	t	A
+10	Leo Prime	Voyager	f	B
+11	Comic Tarn	Voyager	f	C
+12	Metalhawk	Voyager	f	A
+13	Twincast	Voyager	f	A
+14	Trashmaster	Voyager	t	A
+15	Armada Megatron	Leader	t	B
+16	Armada Optimus Prime	Commander	t	B
+17	Deathsaurus	Haslab	f	A
+18	Optimus Prime	SD Core	t	A
+19	Bumblebee	SD Core	t	A
+20	Dion	Voyager	t	C
+21	Erial	Voyager	t	C
+\.
+
+
+--
+-- TOC entry 4849 (class 0 OID 16450)
+-- Dependencies: 224
+-- Data for Name: kingdom; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.kingdom (id, name, size, own, rating) FROM stdin;
+1	Optimus Prime	Core	t	B
+2	Rattrap	Core	f	A
+3	Vertebreak	Core	t	A
+4	Starscream	Core	t	A
+5	Megatron	Core	t	B
+6	Soundwave	Core	t	A
+7	Hot Rod	Core	t	B
+8	Cheetor	Deluxe	f	C
+9	Blackarachnia	Deluxe	t	D
+10	Paleotrex	Deluxe	t	B
+11	Airazor	Deluxe	t	D
+12	Ractonite	Deluxe	t	C
+13	Huffer	Deluxe	t	A
+14	Scorponok	Deluxe	f	F
+15	Wingfinger	Deluxe	t	B
+16	Tracks	Deluxe	t	A
+17	Waspinator	Deluxe	t	C
+18	Pipes	Deluxe	f	B
+19	Optimus Primal	Voyager	f	A
+20	Cyclonus	Voyager	t	A
+21	Dinobot	Voyager	f	C
+22	Inferno	Voyager	t	A
+23	Rhinox	Voyager	t	B
+24	Tigatron	Voyager	t	C
+25	Blaster	Voyager	t	A
+26	Megatron Beast	Leader	t	A
+27	Galvatron	Leader	t	B
+28	Rodimus Prime	Commander	t	A
+29	Ark	Titan	t	A
+30	Netflix Cheetor	Deluxe	t	C
+31	Netflix Optimus Primal	Voyager	t	A
+32	Netflix Rattrap	Core	t	A
+33	Transmutate	Deluxe	f	A
+\.
+
+
+--
+-- TOC entry 4848 (class 0 OID 16443)
+-- Dependencies: 223
+-- Data for Name: legacy; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.legacy (id, name, size, own, rating) FROM stdin;
+1	Prime Arcee	Deluxe	f	F
+2	Dragstrip	Deluxe	t	B
+3	Skids	Deluxe	t	B
+4	Elita-1	Deluxes	t	C
+5	Prime Knock-Out	Deluxe	f	C
+6	Tarantulas	Deluxe	t	D
+7	Wild Rider	Deluxe	t	A
+8	Crankcase	Deluxe	f	C
+9	Dead End	Deluxe	t	A
+10	Pointblank	Deluxe	f	D
+11	Prime Bulkhead	Voyager	t	A
+12	Jhiaxus	Voyager	f	A
+13	Preadacon Inferno	Voyager	t	C
+14	Armada Starscream	Voyager	t	A
+15	Laser Optimus Prime	Leader	f	A
+16	Blitzwing	Leader	t	B
+17	Motormaster	Commander	t	A
+18	Cybertron Metroplex	Titan	t	A
+19	Victory Saber	HasLab	f	A
+20	Override	Voyager	t	A
+21	Diaclone Twin Twist	Deluxes	t	C
+22	Heroic Dinobot	Voyager	t	D
+23	Evil Terrorsaur	Deluxes	t	D
+24	Goldbug	Deluxes	t	C
+25	Ransack	Deluxes	t	B
+26	Skywasp	Deluxes	t	D
+27	Predacon Scorpaonok	Deluxes	t	F
+28	Minerva	Deluxes	f	C
+\.
+
+
+--
+-- TOC entry 4845 (class 0 OID 16424)
+-- Dependencies: 220
+-- Data for Name: power_of_the_prime; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.power_of_the_prime (id, name, size, own, rating) FROM stdin;
+1	Beachcomber	Legends	t	B
+2	Windcharger	Legends	t	C
+3	Battleslash	Legends	f	B
+4	Roadtrap	Legends	f	A
+5	Tailgate	Legends	t	C
+6	Cindersaur	Legends	t	C
+7	Dreadwind	Deluxe	f	A
+8	Blackwing	Deluxe	f	A
+9	Blot	Deluxe	f	A
+10	Rippersnapper	Deluxe	f	A
+11	Cutthroat	Deluxe	f	B
+12	Sinnertwin	Deluxe	f	C
+13	Hun-Gurr	Voyager	f	A
+14	Wreck-Gar	Deluxe	f	C
+15	Red Swoop	Deluxe	f	D
+16	Prdaking	Titan	t	A
+\.
+
+
+--
+-- TOC entry 4846 (class 0 OID 16431)
+-- Dependencies: 221
+-- Data for Name: siege; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.siege (id, name, size, own, rating) FROM stdin;
+1	Singe	Battle Masters	t	B
+2	Rung	Battle Masters	t	B
+3	Topshot	Micromaster	t	C
+4	Flak	Micromaster	t	A
+5	Laserbeak	Micromaster	t	B
+6	Ravage	Micromaster	t	A
+7	Rumble	Micromaster	t	C
+8	Ratbat	Micromaster	t	B
+9	Sideswipe	Deluxe	t	A
+10	Cog	Deluxe	f	C
+11	Hound	Deluxe	t	B
+12	Skytread	Deluxe	f	A
+13	Chromia	Deluxe	t	D
+14	Ironhide	Deluxe	t	B
+15	Sixgun	Deluxe	f	B
+16	Prowl	Deluxe	t	B
+17	Red Alert	Deluxe	t	A
+18	Refraktor	Deluxe	t	C
+19	Brunt	Deluxe	t	A
+20	Barricade	Deluxe	f	A
+21	Impactor	Deluxe	t	A
+22	Mirage	Deluxe	t	B
+23	Spinister	Deluxe	f	A
+24	Crosshairs	Deluxe	f	D
+25	Optimus Prime	Voyager	f	B
+26	Megatron	Voyager	t	B
+27	Starscream	Voyager	f	A
+28	Soundwave	Voyager	t	B
+29	Springer	Voyager	t	D
+30	Thundercracker	Voyager	f	C
+31	Apeface	Voyager	t	C
+32	Ultra Magnus	Leader	t	C
+33	Shockwave	Leader	t	A
+34	Galaxy Upgrade Optimus Prime	Leader	f	B
+35	Astrotrain	Leader	t	A
+36	Jetfire	Commander	t	B
+37	Omega Supreme	Titan	t	C
+38	Ratchet	Deluxe	t	A
+39	Bluestreak	Deluxe	t	B
+40	Spectro	Deluxe	f	A
+41	Spyglass	Deluxe	f	A
+42	Viewfinder	Deluxe	f	A
+43	Acid Storm	Voyager	f	B
+44	Ion Storm	Voyager	f	B
+45	Nova Storm	Voyager	f	B
+46	Smokescreen	Deluxe	t	B
+47	Hot Shot	Deluxe	f	A
+\.
+
+
+--
+-- TOC entry 4852 (class 0 OID 24649)
+-- Dependencies: 227
+-- Data for Name: studio_series; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.studio_series (id, name, size, own, rating) FROM stdin;
+1	86 Jazz	Deluxe	t	B
+2	86 Kup	Deluxe	t	D
+3	86 Blurr	Deluxe	t	B
+4	86 Gnaw	Deluxe	t	B
+5	86 Perceptor	Deluxe	t	C
+6	86 Hot Rod	Voyager	t	A
+7	86 Scurge	Voyager	t	A
+8	86 Wreck-Gar	Voyager	t	B
+9	86 Grimlock	Leader	t	A
+10	86 Slug	Leader	t	B
+11	86 Coronation Starscream	Leader	t	A
+12	86 Snarl	Leader	t	B
+13	86 Spike	Core	t	D
+14	86 Wheelie	Core	t	B
+15	86 Rumble	Core	t	B
+16	86 Sludge	Leader	t	B
+17	Ratchet	Deluxe	t	C
+18	Optimus Prime	Voyager	t	C
+19	Jazz	Deluxe	t	A
+20	Ironhide	Voyager	t	B
+21	Bumblebee	Deluxe	t	D
+22	Optimus Prime DOTM	Leader	t	A
+\.
+
+
+--
+-- TOC entry 4841 (class 0 OID 16400)
+-- Dependencies: 216
+-- Data for Name: thriling_30; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.thriling_30 (id, name, size, own, rating) FROM stdin;
+1	Cosmos	Legends	t	A
+2	windblade	Deluxe	t	C
+3	Skids	Deluxe	f	D
+4	Blitzwing	Voyager	f	D
+5	Sandstorm	Voyager	t	B
+6	Roadbuster	Voyager	t	B
+7	Brainstorm	Voyager	f	B
+\.
+
+
+--
+-- TOC entry 4843 (class 0 OID 16409)
+-- Dependencies: 218
+-- Data for Name: titans_return; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.titans_return (id, name, size, own, rating) FROM stdin;
+1	Kickback	legends	t	A
+2	Brawn	legends	t	A
+3	Seaspray	Legends	t	A
+4	Hardhead	Deluxe	f	A
+5	Skullsmasher	Deluxe	f	C
+6	Chromedome	Deluxe	f	A
+7	Highbrow	Deluxe	f	C
+8	Mindwipe	Deluxe	f	A
+9	Wolfwire	Deluxe	f	A
+10	Triggerhappy	Deluxe	f	A
+11	Twinferno	Deluxe	f	A
+12	Krok	Deluxe	f	D
+13	Quake	Deluxe	f	A
+14	Slugslinger	Deluxe	f	A
+15	Octone	Voyager	t	C
+16	Blitzwing	Voyager	f	C
+17	Overlord	Leader	f	C
+18	Fortress Maximus	Titan	f	A
+19	Trypticon	Titan	f	A
+20	Brainstorm	Deluxe	f	A
+21	Repugnus	Deluxe	f	A
+\.
+
+
+--
+-- TOC entry 4851 (class 0 OID 24642)
+-- Dependencies: 226
+-- Data for Name: united; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.united (id, name, size, own, rating) FROM stdin;
+1	Animated Bumblebee	Deluxe	t	B
+2	Magneous	Deluxe	t	A
+3	Animated Optimus Prime	Voyager	t	A
+4	BW Silverbolt	Voyager	t	A
+\.
+
+
+--
+-- TOC entry 4872 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: titans_return_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.titans_return_id_seq', 1, true);
+
+
+--
+-- TOC entry 4873 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: transformers_thriling_30_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.transformers_thriling_30_id_seq', 1, true);
+
+
+--
+-- TOC entry 4682 (class 2606 OID 16423)
+-- Name: combiner_wars combiner-wars_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.combiner_wars
+    ADD CONSTRAINT "combiner-wars_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4686 (class 2606 OID 16442)
+-- Name: earthrise earthrise_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.earthrise
+    ADD CONSTRAINT earthrise_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4692 (class 2606 OID 24641)
+-- Name: evolution evolution_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.evolution
+    ADD CONSTRAINT evolution_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4690 (class 2606 OID 16456)
+-- Name: kingdom kingdom_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.kingdom
+    ADD CONSTRAINT kingdom_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4688 (class 2606 OID 16449)
+-- Name: legacy lagacy_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.legacy
+    ADD CONSTRAINT lagacy_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4684 (class 2606 OID 16430)
+-- Name: power_of_the_prime power_of_the_prime_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.power_of_the_prime
+    ADD CONSTRAINT power_of_the_prime_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4696 (class 2606 OID 24655)
+-- Name: studio_series studio series_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.studio_series
+    ADD CONSTRAINT "studio series_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4680 (class 2606 OID 16416)
+-- Name: titans_return titans_return_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.titans_return
+    ADD CONSTRAINT titans_return_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4678 (class 2606 OID 16407)
+-- Name: thriling_30 transformers_thriling_30_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.thriling_30
+    ADD CONSTRAINT transformers_thriling_30_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4694 (class 2606 OID 24648)
+-- Name: united united_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.united
+    ADD CONSTRAINT united_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4859 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: TABLE combiner_wars; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.combiner_wars TO PUBLIC;
+
+
+--
+-- TOC entry 4860 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: TABLE earthrise; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.earthrise TO PUBLIC;
+
+
+--
+-- TOC entry 4861 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: TABLE evolution; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.evolution TO PUBLIC;
+
+
+--
+-- TOC entry 4862 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: TABLE kingdom; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.kingdom TO PUBLIC;
+
+
+--
+-- TOC entry 4863 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: TABLE legacy; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.legacy TO PUBLIC;
+
+
+--
+-- TOC entry 4864 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: TABLE power_of_the_prime; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.power_of_the_prime TO PUBLIC;
+
+
+--
+-- TOC entry 4865 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: TABLE siege; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.siege TO PUBLIC;
+
+
+--
+-- TOC entry 4866 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: TABLE studio_series; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.studio_series TO PUBLIC;
+
+
+--
+-- TOC entry 4867 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: TABLE thriling_30; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.thriling_30 TO PUBLIC;
+
+
+--
+-- TOC entry 4868 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: TABLE titans_return; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.titans_return TO PUBLIC;
+
+
+--
+-- TOC entry 4871 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: TABLE united; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT ALL ON TABLE public.united TO PUBLIC;
+
+
+-- Completed on 2024-10-03 21:00:46
+
+--
+-- PostgreSQL database dump complete
+--
+
+-- Completed on 2024-10-03 21:00:46
+
+--
+-- PostgreSQL database cluster dump complete
+--
+
